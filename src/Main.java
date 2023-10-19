@@ -1,9 +1,4 @@
-import java.io.*;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.stream.Stream;
-
-import static javax.print.attribute.standard.MediaSizeName.D;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,10 +12,20 @@ public class Main {
         paths.add("D://Games/res/drawables");
         paths.add("D://Games/res/vectors");
         paths.add("D://Games/res/icons");
-        paths.add("D://Games/temp/temp.txt");
-        for (int i =0; i < paths.size(); i++){
-            CreateFile file = new CreateFile().createFile(paths.get(i));
-            i++;
+        for (int i = 0; i < paths.size(); i++) {
+            CreateFile a = new CreateFile();
+            a.createPack(paths.get(i));
+            a.SaveInfo();
         }
+        ArrayList <String> files = new ArrayList<>();
+        files.add("D://Games/src/main/Main.java");
+        files.add("D://Games/src/main/Utils.java");
+        files.add("D://Games/temp/temp.txt");
+        for (int i =0; i < files.size(); i++) {
+            CreateFile b = new CreateFile();
+            b.createFile(files.get(i));
+            b.SaveInfo();
+        }
+
     }
 }
